@@ -33,22 +33,22 @@ costRes2 = 0;
 
 % max ProdA
 nrMaxProdA = 0;
-maxProdA_res1 = 1000/1;
-maxProdA_res2 = 250/0.2;
+maxProdA_res1 = Res1/1;
+maxProdA_res2 = Res2/0.2;
 if (maxProdA_res1 <= maxProdA_res2) 
-    nrMaxProdA = maxProdA_res1;
+    nrMaxProdA = floor(maxProdA_res1);
 else
-    nrMaxProdA = maxProdA_res2;
+    nrMaxProdA = floor(maxProdA_res2);
 end
 
 % max ProdB
 nrMaxProdB = 0;
-maxProdB_res1 = 1000/0.5;
-maxProdB_res2 = 250/0.5;
+maxProdB_res1 = Res1/0.5;
+maxProdB_res2 = Res2/0.5;
 if (maxProdB_res1 <= maxProdB_res2) 
-    nrMaxProdB = maxProdB_res1;
+    nrMaxProdB = floor(maxProdB_res1);
 else
-    nrMaxProdB = maxProdB_res2;
+    nrMaxProdB = floor(maxProdB_res2);
 end
 
 %tura Prod A
@@ -66,8 +66,8 @@ for i = 1:length(vecNrProdA)
     nrFolRes2 = 0.2*nrProdA;
     
     nrMaxProdB2 = 0; %aflu cate produse B se mai pot face dupa ce se face nr prezent de produse A
-    maxProdB2_res1 = (1000 - nrFolRes1)/0.5;
-    maxProdB2_res2 = (250 - nrFolRes2)/0.5;
+    maxProdB2_res1 = (Res1 - nrFolRes1)/0.5;
+    maxProdB2_res2 = (Res2 - nrFolRes2)/0.5;
     if (maxProdB2_res1 <= maxProdB2_res2) 
         nrMaxProdB2 = floor(maxProdB2_res1);
     else
@@ -83,7 +83,7 @@ for i = 1:length(vecNrProdA)
     
     %
     
-    if (((1000-nrFolRes1) > 0)&&((250 - nrFolRes2) > 0))
+    if (((Res1-nrFolRes1) > 0)&&((Res2 - nrFolRes2) > 0))
         nrFol2Res1 = 0.5*nrMaxProdB2;
         nrFol2Res2 = 0.5*nrMaxProdB2;
         cost2Res1 = 0.375 - 0.00005*nrFol2Res1; 
@@ -108,8 +108,8 @@ for i = 1:length(vecNrProdB)
     nrFolRes2 = 0.5*nrProdB;
     
     nrMaxProdA2 = 0; %aflu cate produse A se mai pot face dupa ce se face nr prezent de produse B
-    maxProdA2_res1 = (1000 - nrFolRes1)/1;
-    maxProdA2_res2 = (250 - nrFolRes2)/0.2;
+    maxProdA2_res1 = (Res1 - nrFolRes1)/1;
+    maxProdA2_res2 = (Res2 - nrFolRes2)/0.2;
     if (maxProdA2_res1 <= maxProdA2_res2) 
         nrMaxProdA2 = floor(maxProdA2_res1);
     else
@@ -125,7 +125,7 @@ for i = 1:length(vecNrProdB)
     
     %
     
-    if (((1000-nrFolRes1) > 0)&&((250 - nrFolRes2) > 0))
+    if (((Res1-nrFolRes1) > 0)&&((Res2 - nrFolRes2) > 0))
         nrFol2Res1 = 1*nrMaxProdA2;
         nrFol2Res2 = 0.2*nrMaxProdA2;
         cost2Res1 = 0.375 - 0.00005*nrFol2Res1; 
@@ -183,6 +183,8 @@ for i = 1:length(profitProdAB)
     end
 end
 
+maxProfitAB
+
 pozitieBA = 0;
 maxProfitBA = 0;
 for i = 1:length(profitProdBA)
@@ -192,6 +194,8 @@ for i = 1:length(profitProdBA)
         pozitieBA = i;
     end
 end
+
+maxProfitBA
 
 if (maxProfitAB >= maxProfitBA)
    
