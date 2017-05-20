@@ -18,8 +18,8 @@ costRes2 = 0;
 
 % max ProdA
 nrMaxProdA = 0;
-maxProdA_res1 = 1000/1;
-maxProdA_res2 = 250/0.2;
+maxProdA_res1 = Res1/1;
+maxProdA_res2 = Res2/0.2;
 if (maxProdA_res1 <= maxProdA_res2) 
     nrMaxProdA = maxProdA_res1;
 else
@@ -28,8 +28,8 @@ end
 
 % max ProdB
 nrMaxProdB = 0;
-maxProdB_res1 = 1000/0.5;
-maxProdB_res2 = 250/0.5;
+maxProdB_res1 = Res1/0.5;
+maxProdB_res2 = Res2/0.5;
 if (maxProdB_res1 <= maxProdB_res2) 
     nrMaxProdB = maxProdB_res1;
 else
@@ -44,8 +44,8 @@ if (verif1 == 1)
     nrFolRes2 = 0.2*nrProdA;
     
     nrMaxProdB2 = 0; %aflu cate produse B se mai pot face dupa ce se face nr prezent de produse A
-    maxProdB2_res1 = (1000 - nrFolRes1)/0.5;
-    maxProdB2_res2 = (250 - nrFolRes2)/0.5;
+    maxProdB2_res1 = (Res1 - nrFolRes1)/0.5;
+    maxProdB2_res2 = (Res2 - nrFolRes2)/0.5;
     if (maxProdB2_res1 <= maxProdB2_res2) 
         nrMaxProdB2 = floor(maxProdB2_res1);
     else
@@ -73,8 +73,8 @@ else
     nrFolRes2 = 0.5*nrProdB;
     
     nrMaxProdA2 = 0; %aflu cate produse A se mai pot face dupa ce se face nr prezent de produse B
-    maxProdA2_res1 = (1000 - nrFolRes1)/1;
-    maxProdA2_res2 = (250 - nrFolRes2)/0.2;
+    maxProdA2_res1 = (Res1 - nrFolRes1)/1;
+    maxProdA2_res2 = (Res2 - nrFolRes2)/0.2;
     if (maxProdA2_res1 <= maxProdA2_res2) 
         nrMaxProdA2 = floor(maxProdA2_res1);
     else
