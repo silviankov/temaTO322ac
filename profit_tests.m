@@ -56,7 +56,7 @@ vecNrProdA = [0:nrMaxProdA];
 profitProdA = zeros(1,length(vecNrProdA));
 nrProdB = 0;
 
-vecNrProdB2 = [0:nrMaxProdB];
+vecNrProdB2 = [0:nrMaxProdA];
 profitProdB2 = zeros(1,length(vecNrProdA));
 
 for i = 1:length(vecNrProdA)
@@ -73,6 +73,8 @@ for i = 1:length(vecNrProdA)
     else
         nrMaxProdB2 = floor(maxProdB2_res2);
     end
+    
+    vecNrProdB2(i) = nrMaxProdB2;
     
     costRes1 = 0.375 - 0.00005*nrFolRes1; 
     costRes2 = 0.75 - 0.0001*nrFolRes2;
@@ -96,7 +98,7 @@ vecNrProdB = [0:nrMaxProdB];
 profitProdB = zeros(1,length(vecNrProdB));
 nrProdA = 0;
 
-vecNrProdA2 = [0:nrMaxProdA];
+vecNrProdA2 = [0:nrMaxProdB];
 profitProdA2 = zeros(1,length(vecNrProdB));
 
 for i = 1:length(vecNrProdB)
@@ -113,6 +115,8 @@ for i = 1:length(vecNrProdB)
     else
         nrMaxProdA2 = floor(maxProdA2_res2);
     end
+    
+    vecNrProdA2(i) = nrMaxProdA2;
     
     costRes1 = 0.375 - 0.00005*nrFolRes1; 
     costRes2 = 0.75 - 0.0001*nrFolRes2;
@@ -169,7 +173,34 @@ grid on
 
 %% aflarea celui mai mare profit
 
+pozitieAB = 0;
+maxProfitAB = 0;
+for i = 1:length(profitProdAB)
+    
+    if (profitProdAB(i) >= maxProfitAB)
+        maxProfitAB = profitProdAB(i);
+        pozitieAB = i;
+    end
+end
 
+pozitieBA = 0;
+maxProfitBA = 0;
+for i = 1:length(profitProdBA)
+    
+    if (profitProdBA(i) >= maxProfitBA)
+        maxProfitBA = profitProdBA(i);
+        pozitieBA = i;
+    end
+end
+
+if (maxProfitAB >= maxProfitBA)
+   
+    fprintf('\n Cel mai mare profit (%d) se obtine cu %d produse A si %d produse B', maxProfitAB, vecNrProdA(pozitieAB), vecNrProdB2(pozitieAB))
+
+else
+    
+    fprintf('\n Cel mai mare profit (%d) se obtine cu %d produse B si %d produse A', maxProfitBA, vecNrProdB(pozitieBA), vecNrProdA2(pozitieBA))
+end
 
 verificare_temaTO(2,125)
 verificare_temaTO(1,750)
