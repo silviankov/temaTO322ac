@@ -64,7 +64,7 @@ if (verif1 == 1)
     pretProdA = 2 - 0.0005*nrProdA - 0.00015*nrMaxProdB2;
     pretProdB = 3.5 - 0.0002*nrProdA - 0.0015*nrMaxProdB2;
 
-    profit = nrProdA*pretProdA + nrMaxProdB2*pretProdB - costRes1 - costRes2;
+    profit = nrProdA*pretProdA + nrMaxProdB2*pretProdB - nrRes1*costRes1 - nrRes2*costRes2;
     
 else
     
@@ -93,7 +93,7 @@ else
     pretProdA = 2 - 0.0005*nrMaxProdA2 - 0.00015*nrProdB;
     pretProdB = 3.5 - 0.0002*nrMaxProdA2 - 0.0015*nrProdB;
 
-    profit = nrMaxProdA2*pretProdA + nrProdB*pretProdB - costRes1 - costRes2;
+    profit = nrMaxProdA2*pretProdA + nrProdB*pretProdB - nrRes1*costRes1 - nrRes2*costRes2;
 end
 
 end
